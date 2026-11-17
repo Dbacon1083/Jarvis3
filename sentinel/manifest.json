@@ -2,9 +2,17 @@
   "name": "Sentinel Personal Command Center",
   "short_name": "Sentinel",
   "description": "Local-first personal project and task command center",
-  "start_url": "./",
+  "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "background_color": "#080a0e",
-  "theme_color": "#090a0e"
+  "theme_color": "#090a0e",
+  "icons": [
+    {
+      "src": "./sentinel-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
 }
