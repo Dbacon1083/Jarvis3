@@ -1,0 +1,10 @@
+{
+  "name": "Sentinel Personal Command Center",
+  "short_name": "Sentinel",
+  "description": "Local-first personal project and task command center",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#080a0e",
+  "theme_color": "#090a0e"
+}
