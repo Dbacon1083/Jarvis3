@@ -148,7 +148,7 @@ display.background=valid(display.background,['default','solid','grid','gradient'
 document.body.dataset.backgroundStyle=display.background;document.body.dataset.cardShape=display.shape;document.body.dataset.interfaceFont=display.typeface;document.body.dataset.textAlignment=display.alignment;
 $('heroCrest').style.display=display.crest==='new'?'block':'none';$('brandIcon').style.display=display.brandIcon?'inline-block':'none';$('homeVersion').style.display=display.homeVersion?'inline-block':'none';
 const stats=document.querySelector('#home .stats');if(stats)stats.style.display=display.stats?'':'none';
-const quick=document.querySelector('#home .quickgrid');if(quick)quick.style.display=display.quickActions?'':'none';
+const quick=document.querySelector('#home .quick');if(quick)quick.style.display=display.quickActions?'':'none';
 const voice=document.querySelector('#home .voice');if(voice)voice.style.display=display.voiceButton?'':'none';
 if(display.welcome){$('greeting').textContent=display.welcome.slice(0,80)}else{const hr=new Date().getHours();$('greeting').textContent=(hr<12?'Good morning.':hr<18?'Good afternoon.':'Good evening.')+' Sentinel online.'}
 $('accentColor').value=safeColor;$('backgroundStyle').value=display.background;$('cardShape').value=display.shape;$('interfaceFont').value=display.typeface;$('textAlignment').value=display.alignment;$('crestStyle').value=display.crest;$('welcomeText').value=display.welcome||'';
@@ -222,7 +222,7 @@ try{r.start()}catch(e){stopListening();bubble('bot','Unable to start microphone:
 $('talk').onclick=listen;$('core').onclick=listen;$('assistantMic').onclick=listen;
 document.addEventListener('visibilitychange',()=>{if(document.hidden)stopListening()});
 window.addEventListener('pagehide',()=>stopListening());
-const hour=new Date().getHours();$('greeting').textContent=(hour<12?'Good morning.':hour<18?'Good afternoon.':'Good evening.')+' Sentinel online.';$('notes').value=db.notes||'';save();render()})();
+$('notes').value=db.notes||'';save();render()})();
 </script>
 <script type="module">
 const status=document.getElementById('aiStatus'),button=document.getElementById('loadAI');
