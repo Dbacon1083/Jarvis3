@@ -127,17 +127,17 @@ window.sentinelActions={
 };
 function deterministicAction(q){
  const s=q.trim(),snap=window.sentinelActions.snapshot();
- const complete=s.match(/^(?:(?:please )?)(?:mark|set)\\s+(.+?)\\s+(?:as\\s+)?(?:completed|complete|done)$/i)||s.match(/^(?:please\\s+)?(?:complete|finish|check off|mark done)\\s+(.+)$/i);
- if(complete){const name=complete[1].replace(/^(?:the\\s+)?task\\s+/i,'').trim().toLowerCase();let matches=snap.tasks.filter(t=>!t.done&&t.title.toLowerCase()===name);if(!matches.length)matches=snap.tasks.filter(t=>!t.done&&(t.title.toLowerCase().includes(name)||name.includes(t.title.toLowerCase())));if(!matches.length){const words=name.replace(/ed\b/g,'').split(/\s+/).filter(w=>w.length>3);if(words.length)matches=snap.tasks.filter(t=>!t.done&&words.every(w=>t.title.toLowerCase().replace(/ed\b/g,'').includes(w)))}if(matches.length===1)return {action:'update_task',taskId:matches[0].id,done:true};if(matches.length>1)return {error:'Multiple tasks match. Please use the full task name.'};return {error:'I could not find an open task named "'+complete[1]+'". No changes made.'}}
- const create=s.match(/^(?:please\\s+)?(?:add|create|make)\\s+(?:a\\s+)?(?:new\\s+)?(?:task|to-do|todo)\\s+(.+)$/i);
- if(create){let body=create[1].trim().replace(/^called\\s+/i,'');let p=null;const prefix=body.match(/^(?:to|in|under|for)\\s+(.+?)\\s+(?:called|named)\\s+(.+)$/i);
+ const complete=s.match(/^(?:(?:please )?)(?:mark|set)\s+(.+?)\s+(?:as\s+)?(?:completed|complete|done)$/i)||s.match(/^(?:please\s+)?(?:complete|finish|check off|mark done)\s+(.+)$/i);
+ if(complete){const name=complete[1].replace(/^(?:the\s+)?task\s+/i,'').trim().toLowerCase();let matches=snap.tasks.filter(t=>!t.done&&t.title.toLowerCase()===name);if(!matches.length)matches=snap.tasks.filter(t=>!t.done&&(t.title.toLowerCase().includes(name)||name.includes(t.title.toLowerCase())));if(!matches.length){const words=name.replace(/ed\b/g,'').split(/\s+/).filter(w=>w.length>3);if(words.length)matches=snap.tasks.filter(t=>!t.done&&words.every(w=>t.title.toLowerCase().replace(/ed\b/g,'').includes(w)))}if(matches.length===1)return {action:'update_task',taskId:matches[0].id,done:true};if(matches.length>1)return {error:'Multiple tasks match. Please use the full task name.'};return {error:'I could not find an open task named "'+complete[1]+'". No changes made.'}}
+ const create=s.match(/^(?:please\s+)?(?:add|create|make)\s+(?:a\s+)?(?:new\s+)?(?:task|to-do|todo)\s+(.+)$/i);
+ if(create){let body=create[1].trim().replace(/^called\s+/i,'');let p=null;const prefix=body.match(/^(?:to|in|under|for)\s+(.+?)\s+(?:called|named)\s+(.+)$/i);
  if(prefix){p=snap.projects.find(x=>x.name.toLowerCase()===prefix[1].toLowerCase());if(p)body=prefix[2]}
- const suffix=body.match(/^(.+?)\\s+(?:to|in|under|for)\\s+(?:my\\s+)?(.+?)(?:\\s+project)?$/i);
- if(!p&&suffix){const candidate=suffix[2].replace(/\\s+project$/i,'');const found=snap.projects.find(x=>x.name.toLowerCase()===candidate.toLowerCase());if(found){p=found;body=suffix[1]}}
- const natural=body.match(/^(?:the\\s+)?(.+?)\\s+project\\s+(?:called|named)\\s+(.+)$/i);
+ const suffix=body.match(/^(.+?)\s+(?:to|in|under|for)\s+(?:my\s+)?(.+?)(?:\s+project)?$/i);
+ if(!p&&suffix){const candidate=suffix[2].replace(/\s+project$/i,'');const found=snap.projects.find(x=>x.name.toLowerCase()===candidate.toLowerCase());if(found){p=found;body=suffix[1]}}
+ const natural=body.match(/^(?:the\s+)?(.+?)\s+project\s+(?:called|named)\s+(.+)$/i);
  if(!p&&natural){const found=snap.projects.find(x=>x.name.toLowerCase()===natural[1].toLowerCase());if(found){p=found;body=natural[2]}}
- const priority=/\\b(?:high priority|urgent|make it high priority)\\b/i.test(body)?'High':'Normal';
- body=body.replace(/\\s*(?:,?\\s*and\\s+)?(?:make it |set (?:it )?to )?high priority\\s*$/i,'').replace(/\\s*,?\\s*urgent\\s*$/i,'').trim();
+ const priority=/\b(?:high priority|urgent|make it high priority)\b/i.test(body)?'High':'Normal';
+ body=body.replace(/\s*(?:,?\s*and\s+)?(?:make it |set (?:it )?to )?high priority\s*$/i,'').replace(/\s*,?\s*urgent\s*$/i,'').trim();
  if(!body)return {error:'Please provide a task title.'};
  return {action:'create_task',title:body,projectId:p?.id||'',priority,due:''}
  }
