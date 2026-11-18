@@ -1,17 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><defs>
-<radialGradient id="bg" cx="50%" cy="43%" r="72%"><stop stop-color="#1c222c"/><stop offset=".65" stop-color="#090c12"/><stop offset="1" stop-color="#020305"/></radialGradient>
-<linearGradient id="metal" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f9fbff"/><stop offset=".16" stop-color="#8e99a6"/><stop offset=".32" stop-color="#e2e9f0"/><stop offset=".53" stop-color="#58616d"/><stop offset=".7" stop-color="#e8edf4"/><stop offset=".88" stop-color="#8c97a4"/><stop offset="1" stop-color="#f5f8fc"/></linearGradient>
-<linearGradient id="ridge" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffffff"/><stop offset=".5" stop-color="#b3c1cf"/><stop offset="1" stop-color="#444b58"/></linearGradient>
-<filter id="redGlow"><feGaussianBlur stdDeviation="5"/></filter></defs>
-<rect width="512" height="512" rx="105" fill="url(#bg)"/>
-<rect x="15" y="15" width="482" height="482" rx="94" fill="none" stroke="#5b6572" stroke-width="3"/>
-<circle cx="256" cy="256" r="202" fill="none" stroke="#3b222b" stroke-width="2"/>
-<circle cx="256" cy="256" r="191" fill="none" stroke="#a82a3c" stroke-width="2" opacity=".65"/>
-<circle cx="256" cy="256" r="181" fill="none" stroke="#58616e" stroke-width="1" opacity=".5"/>
-<!-- Single smooth S: restrained bevel and an embedded red filament -->
-<path id="s" d="M357 149 C318 108 227 101 178 139 C133 174 143 227 198 249 C226 261 274 266 306 285 C361 319 330 382 265 391 C213 398 169 379 145 356" fill="none" stroke="#030406" stroke-width="105" stroke-linecap="square" stroke-linejoin="round"/>
-<path d="M357 149 C318 108 227 101 178 139 C133 174 143 227 198 249 C226 261 274 266 306 285 C361 319 330 382 265 391 C213 398 169 379 145 356" fill="none" stroke="url(#metal)" stroke-width="88" stroke-linecap="square" stroke-linejoin="round"/>
-<path d="M357 149 C318 108 227 101 178 139 C133 174 143 227 198 249 C226 261 274 266 306 285 C361 319 330 382 265 391 C213 398 169 379 145 356" fill="none" stroke="url(#ridge)" stroke-width="66" stroke-linecap="square" stroke-linejoin="round" opacity=".68"/>
-<path d="M357 149 C318 108 227 101 178 139 C133 174 143 227 198 249 C226 261 274 266 306 285 C361 319 330 382 265 391 C213 398 169 379 145 356" fill="none" stroke="#ff2c46" stroke-width="10" stroke-linecap="square" stroke-linejoin="round" filter="url(#redGlow)" opacity=".8"/>
-<path d="M357 149 C318 108 227 101 178 139 C133 174 143 227 198 249 C226 261 274 266 306 285 C361 319 330 382 265 391 C213 398 169 379 145 356" fill="none" stroke="#e3344b" stroke-width="3.5" stroke-linecap="square" stroke-linejoin="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Sentinel watchtower insignia">
+<defs>
+<radialGradient id="night" cx=".5" cy=".43" r=".74"><stop stop-color="#202630"/><stop offset=".58" stop-color="#0d1119"/><stop offset="1" stop-color="#030507"/></radialGradient>
+<linearGradient id="titanium" x1=".1" y1="0" x2=".9" y2="1"><stop stop-color="#f7fafc"/><stop offset=".18" stop-color="#798896"/><stop offset=".43" stop-color="#e5ebf2"/><stop offset=".67" stop-color="#5a6877"/><stop offset=".87" stop-color="#d9e2ec"/><stop offset="1" stop-color="#647280"/></linearGradient>
+<linearGradient id="ruby" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ff7c8c"/><stop offset=".45" stop-color="#f22c49"/><stop offset="1" stop-color="#85192c"/></linearGradient>
+<filter id="halo" x="-70%" y="-70%" width="240%" height="240%"><feGaussianBlur stdDeviation="11"/></filter>
+</defs>
+<rect width="512" height="512" rx="108" fill="url(#night)"/>
+<rect x="19" y="19" width="474" height="474" rx="91" fill="none" stroke="#57616c" stroke-width="3" opacity=".5"/>
+<circle cx="256" cy="256" r="195" fill="none" stroke="#7b2735" stroke-width="2" opacity=".65"/>
+<circle cx="256" cy="256" r="183" fill="none" stroke="#a7b4c2" stroke-width="1" opacity=".35"/>
+<!-- Deliberately broken armored hexagon: protective perimeter and an open forward horizon -->
+<path d="M256 71 403 156 403 325 256 410 109 325 109 156Z" fill="#0a0f16" stroke="#080b10" stroke-width="28" stroke-linejoin="bevel"/>
+<path d="M256 71 403 156 403 325 256 410 109 325 109 156Z" fill="none" stroke="url(#titanium)" stroke-width="15" stroke-linejoin="bevel"/>
+<path d="M256 89 385 165 385 315 256 391 127 315 127 165Z" fill="none" stroke="#343e4a" stroke-width="2"/>
+<!-- Two independent swept blades make an abstract vigilant eye without a letterform -->
+<path d="M140 254 224 176 256 192 288 176 372 254 294 235 256 258 218 235Z" fill="url(#titanium)" stroke="#10151c" stroke-width="5" stroke-linejoin="round"/>
+<path d="M140 274 218 295 256 272 294 295 372 274 288 354 256 338 224 354Z" fill="url(#titanium)" stroke="#10151c" stroke-width="5" stroke-linejoin="round"/>
+<!-- Core beacon: small enough to read at Home Screen icon size -->
+<path d="M256 204 309 256 256 308 203 256Z" fill="#ff304c" opacity=".65" filter="url(#halo)"/>
+<path d="M256 207 305 256 256 305 207 256Z" fill="url(#ruby)" stroke="#ffadba" stroke-width="4"/>
+<path d="M256 228 284 256 256 284 228 256Z" fill="#310812"/>
+<path d="M256 236 276 256 256 276 236 256Z" fill="#ff6678"/>
+<path d="M256 244 268 256 256 268 244 256Z" fill="#fff3f4"/>
+<!-- Minimal tracking ticks -->
+<path d="M256 46V62 M256 427V446 M65 256H83 M429 256H447" stroke="#e4485d" stroke-width="5" stroke-linecap="square"/>
 </svg>
